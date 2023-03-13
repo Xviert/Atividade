@@ -2,7 +2,10 @@ const uri = 'http://localhost:3000/produto';
 const cadastro = document.querySelector('#cadastro');
 const corpo = document.querySelector('#corpo');
 const total = document.querySelector('#total');
+const patrimonio = document.querySelector("#total-patrimonio");
+
 var valTotal = 0;
+var patTotal = 0;
 
 fetch(uri + '/listar', { method: 'GET' })
     .then(resp => resp.json())
@@ -13,12 +16,14 @@ cadastro.addEventListener('submit', e => {
     e.preventDefault();
 
     const body = {
-        "id": cadastro.id.value,
+        "id": cadastro.codigo.value,
         "nome": cadastro.nome.value,
         "descricao": cadastro.descricao.value,
         "valor": cadastro.valor.value,
         "quantidade": cadastro.quantidade.value,
     }
+
+    console.log(body)
 
     const options = {
         method: 'POST',
@@ -62,8 +67,11 @@ function montarTabela(vetor) {
         linha.appendChild(col6)
         linha.appendChild(col7)
         corpo.appendChild(linha)
-        // valTotal += e.valor
-        // total.value = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valTotal)
+        valTotal = e.valor * e.quantidade;
+        col6.innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valTotal)
+        patTotal += valTotal;
+        patrimonio.innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(patTotal);
+
     });
 }
 

@@ -3,11 +3,11 @@ CREATE DATABASE loja_de_materiais CHARSET=UTF8 COLLATE utf8_general_ci;
 USE loja_de_materiais;
 -- DDL Criação da estrutura da tabela
 CREATE TABLE Produto(
-    id varchar(5) not null primary key,
+    id varchar(5) not null ,
     nome varchar(50) not null,
     descricao text,
     valor decimal(10,2) not null,
-    quatidade int not null
+    quantidade int not null
 );
 -- DML Popular a tabela com dados de teste
 INSERT INTO Produto VALUES

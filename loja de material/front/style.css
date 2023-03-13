@@ -91,7 +91,20 @@ footer {
     display: flex;
     justify-content: flex-end;
 }
-
+#Patrimonio{
+    position: relative;
+    top: 10px;
+}
+#total-patrimonio{
+    background: white;
+    color: black;
+    width: 191px;
+    height: 37px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* input[type="text"][name="total"] {
     background-color: white;
     border: none;
